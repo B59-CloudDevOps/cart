@@ -31,6 +31,12 @@ pipeline {
                 sh "echo 'Unit Functional completed successfully!'"
             }   
         }
+        stage('Building Artifact') {
+            steps {
+                sh "echo Running Building Artifact..."
+                sh "echo 'Artifact built successfully!'"
+            }   
+        }
         stage('Tagging The Version') {
             steps {
                 sh "echo 'Tagging the version...'"
