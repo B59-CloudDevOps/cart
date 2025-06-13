@@ -1,8 +1,13 @@
+@Library('robot-shared-library@main') _
+
 pipeline {
     agent any 
     stages {
         stage('Lint Checks') {
             steps {
+                script {
+                    nodejs.info('Batch59')
+                }
                 sh "echo 'Running lint checks...'"
                 sh "echo 'lint checks completed successfully!'"
             }   
