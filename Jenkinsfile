@@ -19,18 +19,21 @@ pipeline {
                     steps {
                         sh "echo 'Running Unit Testing...'"
                         sh "echo 'Unit Testing completed successfully!'"
+                        sh "sleep 30"
                     }   
                 }
                 stage('Integration Testing') {
                     steps {
                         sh "echo 'Running Integration Testing...'"
                         sh "echo 'Unit Integration completed successfully!'"
+                        sh "sleep 60"
                     }   
                 }
                 stage('Functional Testing') {
                     steps {
                         sh "echo 'Running Functional Testing...'"
                         sh "echo 'Unit Functional completed successfully!'"
+                        sh "sleep 100"
                     }   
                 }
             }    
