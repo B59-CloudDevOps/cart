@@ -13,23 +13,27 @@ pipeline {
                 sh "echo 'Sonar checks completed successfully!'"
             }   
         }
-        stage('Unit Testing') {
-            steps {
-                sh "echo 'Running Unit Testing...'"
-                sh "echo 'Unit Testing completed successfully!'"
-            }   
-        }
-        stage('Integration Testing') {
-            steps {
-                sh "echo 'Running Integration Testing...'"
-                sh "echo 'Unit Integration completed successfully!'"
-            }   
-        }
-        stage('Functional Testing') {
-            steps {
-                sh "echo 'Running Functional Testing...'"
-                sh "echo 'Unit Functional completed successfully!'"
-            }   
+        stage('Parallel Stage : Testing') {
+            parallel {
+                stage('Unit Testing') {
+                    steps {
+                        sh "echo 'Running Unit Testing...'"
+                        sh "echo 'Unit Testing completed successfully!'"
+                    }   
+                }
+                stage('Integration Testing') {
+                    steps {
+                        sh "echo 'Running Integration Testing...'"
+                        sh "echo 'Unit Integration completed successfully!'"
+                    }   
+                }
+                stage('Functional Testing') {
+                    steps {
+                        sh "echo 'Running Functional Testing...'"
+                        sh "echo 'Unit Functional completed successfully!'"
+                    }   
+                }
+            }    
         }
         stage('Building Artifact') {
             steps {
